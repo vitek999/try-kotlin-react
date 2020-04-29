@@ -33,34 +33,34 @@ class VideoPlayer : RComponent<VideoPlayerProps, RState>() {
                         props.onWatchedButtonPressed(props.video)
                     }
                 }
-                styledDiv {
-                    css {
-                        display = Display.flex
-                        marginBottom = 10.px
-                    }
-                    EmailShareButton {
-                        attrs.url = props.video.videoUrl
-                        EmailIcon {
-                            attrs {
-                                size = 32
-                                round = true
-                            }
-                        }
-                    }
-                    TelegramShareButton {
-                        attrs.url = props.video.videoUrl
-                        TelegramIcon {
-                            attrs {
-                                size = 32
-                                round = true
-                            }
-                        }
-                    }
-                }
                 if (props.unwatchedVideo) {
                     +"Mark as wathced"
                 } else {
                     +"Mark as unwatched"
+                }
+            }
+            styledDiv {
+                css {
+                    display = Display.flex
+                    marginBottom = 10.px
+                }
+                EmailShareButton {
+                    attrs.url = props.video.videoUrl
+                    EmailIcon {
+                        attrs {
+                            size = 32
+                            round = true
+                        }
+                    }
+                }
+                TelegramShareButton {
+                    attrs.url = props.video.videoUrl
+                    TelegramIcon {
+                        attrs {
+                            size = 32
+                            round = true
+                        }
+                    }
                 }
             }
             ReactPlayer {

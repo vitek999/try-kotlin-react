@@ -8,19 +8,19 @@ import react.RProps
 external val EmailIcon: RClass<IconProps>
 
 @JsName("EmailShareButton")
-external val EmailShareButton: RClass<ShareButtonPops>
+external val EmailShareButton: RClass<ShareButtonProps>
 
 @JsName("TelegramIcon")
 external val TelegramIcon: RClass<IconProps>
 
 @JsName("TelegramShareButton")
-external val TelegramShareButton : RClass<ShareButtonPops>
+external val TelegramShareButton: RClass<ShareButtonProps>
 
-external interface ShareButtonPops: RProps {
+external interface ShareButtonProps : RProps {
     var url: String
 }
 
-external interface IconProps: RProps {
+external interface IconProps : RProps {
     var size: Int
     var round: Boolean
 }
