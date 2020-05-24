@@ -48,7 +48,7 @@ class App : RComponent<RProps, AppState>() {
         }
 
         state.currentVideo?.let { currentVideo ->
-            videoPlayer {
+            child(VideoPlayer, props = jsObject {
                 video = currentVideo
                 unwatchedVideo = video in state.unwatchedVideos
                 onWatchedButtonPressed = {
@@ -64,7 +64,7 @@ class App : RComponent<RProps, AppState>() {
                         }
                     }
                 }
-            }
+            })
         }
     }
 
