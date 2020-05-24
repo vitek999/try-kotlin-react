@@ -1,9 +1,12 @@
+import kotlinext.js.jsObject
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import react.*
-import react.dom.*
+import react.dom.div
+import react.dom.h1
+import react.dom.h3
 
-external interface AppState: RState {
+external interface AppState : RState {
     var currentVideo: Video?
     var unwatchedVideos: List<Video>
     var watchedVideos: List<Video>
@@ -19,37 +22,37 @@ class App : RComponent<RProps, AppState>() {
                 +"Videos to watch"
             }
 
-            videoList {
+            child(VideoList, props = jsObject {
                 videos = state.unwatchedVideos
                 selectedVideo = state.currentVideo
-                onSelectVideo = {video ->
+                onSelectVideo = { video ->
                     setState {
                         currentVideo = video
                     }
                 }
-            }
+            })
 
             h3 {
                 +"Videos watched"
             }
 
-            videoList {
+            child(VideoList, props = jsObject {
                 videos = state.watchedVideos
                 selectedVideo = state.currentVideo
-                onSelectVideo = {video ->
+                onSelectVideo = { video ->
                     setState {
                         currentVideo = video
                     }
                 }
-            }
+            })
         }
 
-        state.currentVideo?.let {currentVideo ->
+        state.currentVideo?.let { currentVideo ->
             videoPlayer {
                 video = currentVideo
                 unwatchedVideo = video in state.unwatchedVideos
                 onWatchedButtonPressed = {
-                    if(video in state.unwatchedVideos) {
+                    if (video in state.unwatchedVideos) {
                         setState {
                             unwatchedVideos -= video
                             watchedVideos += video

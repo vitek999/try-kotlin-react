@@ -1,7 +1,6 @@
 import kotlinx.html.js.onClickFunction
 import react.*
 import react.dom.p
-import kotlin.browser.window
 
 external interface VideoListProps : RProps {
     var videos: List<Video>
@@ -9,31 +8,19 @@ external interface VideoListProps : RProps {
     var onSelectVideo: (Video) -> Unit
 }
 
-external interface VideoListState : RState {
-    var selectedVideo: Video?
-}
-
-class VideoList : RComponent<VideoListProps, RState>() {
-    override fun RBuilder.render() {
-        for (video in props.videos) {
-            p {
-                key = video.id.toString()
-                attrs {
-                    onClickFunction = {
-                        props.onSelectVideo(video)
-                    }
+val VideoList = functionalComponent<VideoListProps> { props->
+    for (video in props.videos) {
+        p {
+            key = video.id.toString()
+            attrs {
+                onClickFunction = {
+                    props.onSelectVideo(video)
                 }
-                if (video == props.selectedVideo) {
-                    +"▶ "
-                }
-                +"${video.speaker}: ${video.title}"
             }
+            if (video == props.selectedVideo) {
+                +"▶ "
+            }
+            +"${video.speaker}: ${video.title}"
         }
-    }
-}
-
-fun RBuilder.videoList(handler: VideoListProps.() -> Unit): ReactElement {
-    return child(VideoList::class) {
-        this.attrs(handler)
     }
 }
