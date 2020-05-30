@@ -2,16 +2,12 @@
 <module version="4">
   <component name="FacetManager">
     <facet type="kotlin-language" name="Kotlin">
-      <configuration version="3" platform="JavaScript " allPlatforms="JS []" useProjectSettings="false" isTestModule="true" externalProjectId="test-react" pureKotlinSourceFolders="C:\Users\vitek\Projects\Kotlin\test-react\src\test\kotlin;C:\Users\vitek\Projects\Kotlin\test-react\src\main\kotlin">
-        <sourceSets>
-          <sourceSet>org.example.test-react.main</sourceSet>
-        </sourceSets>
+      <configuration version="3" platform="JavaScript " allPlatforms="JS []" useProjectSettings="false" isTestModule="false" externalProjectId="test-react" pureKotlinSourceFolders="C:\Users\vitek\Projects\Kotlin\test-react\src\test\kotlin;C:\Users\vitek\Projects\Kotlin\test-react\src\main\kotlin">
         <newMppModelJpsModuleKind>COMPILATION_AND_SOURCE_SET_HOLDER</newMppModelJpsModuleKind>
-        <externalSystemTestTasks>browserTest|test-react:test|Js</externalSystemTestTasks>
-        <testOutputPath>$MODULE_DIR$/../../build/js/packages/test-react-test/kotlin/test-react-test.js</testOutputPath>
+        <productionOutputPath>$MODULE_DIR$/../../build/js/packages/test-react/kotlin/test-react.js</productionOutputPath>
         <compilerSettings />
         <compilerArguments>
-          <option name="outputFile" value="$MODULE_DIR$/../../build/js/packages/test-react-test/kotlin/test-react-test.js" />
+          <option name="outputFile" value="$MODULE_DIR$/../../build/js/packages/test-react/kotlin/test-react.js" />
           <option name="noStdlib" value="true" />
           <option name="sourceMap" value="true" />
           <option name="metaInfo" value="true" />
@@ -24,7 +20,9 @@
             <array />
           </option>
           <option name="pluginClasspaths">
-            <array />
+            <array>
+              <option value="$KOTLIN_BUNDLED$/lib/kotlinx-serialization-compiler-plugin.jar" />
+            </array>
           </option>
           <option name="multiPlatform" value="true" />
           <option name="errors">
